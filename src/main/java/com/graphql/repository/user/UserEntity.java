@@ -1,13 +1,13 @@
-package com.graphql.insfrastructure.user;
+package com.graphql.repository.user;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name = "USERS")
+@Document(collection = "USERS")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -15,8 +15,7 @@ import lombok.NoArgsConstructor;
 public class UserEntity {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private String id;
     private String name;
     private String email;
 }
